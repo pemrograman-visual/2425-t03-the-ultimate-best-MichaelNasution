@@ -4,10 +4,10 @@
         <attribute name="name" value="T02"/>
         <attribute name="authors" value="ASUS"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2024-10-02 04:24:23 PM"/>
+        <attribute name="saved" value="2024-10-02 09:00:42 PM"/>
         <attribute name="created" value="QVNVUztLQUxFSDsyMDI0LTA5LTI3OzEwOjEwOjI1IEFNOzE5Mzc="/>
         <attribute name="edited" value="QVNVUztLQUxFSDsyMDI0LTA5LTI3OzEwOjEwOjI4IEFNOzE7QVNVUztLQUxFSDsyMDI0LTA5LTA2OzEwOjA4OjUwIEFNO1QwMS5mcHJnOzQ3NjM="/>
-        <attribute name="edited" value="QVNVUztLQUxFSDsyMDI0LTEwLTAyOzA0OjI0OjIzIFBNOzQ7MjA1NA=="/>
+        <attribute name="edited" value="QVNVUztLQUxFSDsyMDI0LTEwLTAyOzA5OjAwOjQyIFBNOzY7MjA1Ng=="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -21,9 +21,18 @@
                 <input variable="PENULIS"/>
                 <input variable="TahunTerbit"/>
                 <input variable="PENERBIT"/>
+                <if expression="PENERBIT = &quot;---&quot;">
+                    <then>
+                        <assign variable="PENERBIT" expression="&quot;---&quot;"/>
+                    </then>
+                    <else>
+                        <assign variable="PENERBIT" expression="PENERBIT"/>
+                    </else>
+                </if>
                 <input variable="FormatBuku"/>
                 <input variable="HargaPembelian"/>
                 <input variable="Margin"/>
+                <assign variable="Result" expression="&quot;&quot;"/>
                 <if expression="Margin/HargaPembelian &lt; -0.4">
                     <then>
                         <assign variable="Result" expression="&quot;Once in a lifetime&quot;"/>
@@ -38,7 +47,9 @@
                                     <then>
                                         <assign variable="Result" expression="&quot;No regret&quot;"/>
                                     </then>
-                                    <else/>
+                                    <else>
+                                        <assign variable="Result" expression="&quot;&quot;"/>
+                                    </else>
                                 </if>
                             </else>
                         </if>
@@ -82,12 +93,12 @@
                         </if>
                     </else>
                 </if>
-                <if expression="Result = &quot;Once in a lifetime&quot; &amp;&amp; rate = &quot;Best Pick&quot;">
+                <if expression="Result == &quot;Once in a lifetime&quot; &amp;&amp; rate == &quot;Best Pick&quot;">
                     <then>
                         <assign variable="FinalResult" expression="&quot;The ultimate best&quot;"/>
                     </then>
                     <else>
-                        <assign variable="FinalResult" expression="&quot;&quot;"/>
+                        <assign variable="FinalResult" expression="&quot;---&quot;"/>
                     </else>
                 </if>
                 <output expression="ISBN&amp;&quot;|&quot;&amp;JUDUL&amp;&quot;|&quot;&amp;PENULIS&amp;&quot;|&quot;&amp;TahunTerbit&amp;&quot;|&quot;&amp;PENERBIT&amp;&quot;|&quot;&amp;FormatBuku&amp;&quot;|&quot;&amp;tofixed(HargaPembelian,2)&amp;&quot;|&quot;&amp;tofixed(Margin,2)&amp;&quot;|&quot;&amp;StokBuku&amp;&quot;|&quot;&amp;tofixed(Rating,1)&amp;&quot;|&quot;&amp;rate&amp;&quot;|&quot;&amp;Result&amp;&quot;|&quot;&amp;FinalResult" newline="True"/>
