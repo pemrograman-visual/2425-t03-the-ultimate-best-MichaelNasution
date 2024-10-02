@@ -1,7 +1,7 @@
 // 12S24003 Michael Nasution
 // 12S24045 Mutiara Sianturi
 
-import java.util.*;
+ import java.util.*;
 import java.lang.Math;
 
 public class T03 {
@@ -13,7 +13,7 @@ public class T03 {
         double hargaPembelian, margin, rating;
 
         iSBN = input.nextLine();
-        while (!iSBN.equals("---")) {
+        do {
             jUDUL = input.nextLine();
             pENULIS = input.nextLine();
             tahunTerbit = Integer.parseInt(input.nextLine());
@@ -70,7 +70,7 @@ public class T03 {
             }
             System.out.println(iSBN + "|" + jUDUL + "|" + pENULIS + "|" + tahunTerbit + "|" + pENERBIT + "|" + formatBuku + "|" + toFixed(hargaPembelian,2) + "|" + toFixed(margin,2) + "|" + stokBuku + "|" + toFixed(rating,1) + "|" + rate + "|" + result + "|" + finalResult);
             iSBN = input.nextLine();
-        }
+        } while (!iSBN.equals("---"));
     }
     
     private static String toFixed(double value, int digits) {
