@@ -1,10 +1,7 @@
 // 12S24003 Michael Nasution
 // 12S24045 Mutiara Sianturi
 
- import java.util.*;
-import java.lang.Math;
-
-import java.util.*;
+  import java.util.*;
 import java.lang.Math;
 
 public class T03 {
@@ -57,11 +54,7 @@ public class T03 {
                         if (rating >= 3.0) {
                             rate = "Average";
                         } else {
-                            if (rating < 3) {
-                                rate = "Low";
-                            } else {
-                                rate = "";
-                            }
+                            rate = "Low";
                         }
                     }
                 }
