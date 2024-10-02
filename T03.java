@@ -4,6 +4,9 @@
  import java.util.*;
 import java.lang.Math;
 
+import java.util.*;
+import java.lang.Math;
+
 public class T03 {
     private static Scanner input = new Scanner(System.in);
 
@@ -27,16 +30,16 @@ public class T03 {
             hargaPembelian = Double.parseDouble(input.nextLine());
             margin = Double.parseDouble(input.nextLine());
             result = "";
-            if (margin / hargaPembelian < -0.4) {
-                result = "Once in a lifetime";
+            if (margin > 0) {
+                result = "---";
             } else {
-                if (margin / hargaPembelian < -0.2) {
-                    result = "Never come twice";
+                if (margin < -(hargaPembelian * 40 / 100)) {
+                    result = "Once in a lifetime";
                 } else {
-                    if (margin / hargaPembelian <= 0) {
-                        result = "No regret";
+                    if (margin < -(hargaPembelian * 20 / 100)) {
+                        result = "Never come twice";
                     } else {
-                        result = "";
+                        result = "No regret";
                     }
                 }
             }
@@ -69,7 +72,6 @@ public class T03 {
                 finalResult = "---";
             }
             System.out.println(iSBN + "|" + jUDUL + "|" + pENULIS + "|" + tahunTerbit + "|" + pENERBIT + "|" + formatBuku + "|" + toFixed(hargaPembelian,2) + "|" + toFixed(margin,2) + "|" + stokBuku + "|" + toFixed(rating,1) + "|" + rate + "|" + result + "|" + finalResult);
-            iSBN = input.nextLine();
         } while (!iSBN.equals("---"));
     }
     
